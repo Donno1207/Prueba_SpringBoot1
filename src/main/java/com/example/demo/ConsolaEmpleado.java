@@ -21,11 +21,11 @@ public class ConsolaEmpleado implements CommandLineRunner {
         Scanner sc = new Scanner(System.in);
         int opcion = 0;
 
-        while (opcion != 3) {
-            System.out.println("\n=== MENÚ EMPLEADOS ===");
+        while (opcion != 4) {
             System.out.println("1. Crear empleado");
             System.out.println("2. Ver empleados");
-            System.out.println("3. Salir");
+            System.out.println("3. Eliminar empleado");
+            System.out.println("4. Salir");
             System.out.print("Elige una opción: ");
 
             try {
@@ -38,7 +38,8 @@ public class ConsolaEmpleado implements CommandLineRunner {
             switch (opcion) {
                 case 1 -> crearEmpleado(sc);
                 case 2 -> listarEmpleados();
-                case 3 -> System.out.println("Hasta luego.");
+                case 3 -> eliminarEmpleado(sc);
+                case 4 -> System.out.println("Hasta luego.");
                 default -> System.out.println("Opción no válida.");
             }
         }
@@ -75,6 +76,21 @@ public class ConsolaEmpleado implements CommandLineRunner {
         for (Empleado e : empleados) {
             System.out.println(e.getId() + " | " + e.getNombre() + " " + e.getApellido()
                     + " | " + e.getPuesto() + " | " + e.getCorreo() + " | " + e.getTelefono());
+        }
+    }
+
+    private void eliminarEmpleado(Scanner sc) {
+        System.out.print("Id del empleado a eliminar: ");
+        try {  
+            long id = Long.parseLong(sc.nextLine().trim());
+            if (repo.existsById(id)) {
+                repo.deleteById(id);
+                System.out.println("Empleado eliminado.");
+            } else {
+                System.out.println("Empleado no encontrado.");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Id no válido.");
         }
     }
 }
