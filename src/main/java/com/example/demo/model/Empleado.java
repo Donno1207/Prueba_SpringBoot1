@@ -6,6 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.GenerationType;
 
+
+//Tabla de la base de datos
 @Entity 
 public class Empleado {
     @Id 

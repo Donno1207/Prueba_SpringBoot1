@@ -5,6 +5,8 @@ import com.example.demo.repository.EmpleadoRepository;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
+
+//Sirve para las solicitudes web
 @RestController
 @RequestMapping("/empleados")
 public class EmpleadoController {
