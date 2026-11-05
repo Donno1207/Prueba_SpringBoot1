@@ -1,0 +1,26 @@
+Explicación de Spring Boot.
+
+Spring Boot para el trabajo de fin de grado lo usaremos como API para almacenar los datos de nuestro ERP dentro de una base de datos que esta subida a la nube. Esta base de datos puede
+ser accedida por la aplicación móvil, web y por el CRM.
+
+Para el CRM usamos Spring Boot para hacer conexión con la nube y almacenar los datos.
+
+Spring nos proporciona una serie de carpetas con lo necesario para poder hacer las conexiones a nuestra base de datos en la nube y con nuestro controlador de datos, en nuestro es
+Mysql WorkBench.
+
+Spring nos genera automáticamente una clase que se encarga de inicar Spring como si fuera un servidor, cada vez que este iniciado podremos acceder a los servicios de este. Para hacer
+ello deberemos de hacer 3 clases para cada tipo de necesidad.
+
+Nuestra primera necesidad es tener conexión con nuestra base de datos. Para ello creamos EmpleadoRepositorio, es nuestra clase que se encarga de hablar con MySql. En resumidas cuentas,
+describimos lo que queremos y Spring nos lo da. En este caso nosotros le pedimos que nos encuentre por los datos que hay en la tabla.
+
+Como segundo punto esta la clase que se encarga de ser la estructura de nuestra tabla en la base de datos, también funcionara como constructor del objeto "empleado" por si queremos
+usar el objeto dentro del código. NOTA: En este ejemplo cada vez que se añade un empleado a la base de datos se crea un objeto que siempre tiene el mismo nombre, por lo que tendríamos
+que hacer algo para que el nombre del objeto vaya cambiando y sea mucho más fácil de diferenciar del resto, que aunque tengan el mismo nombre tienen una diferencia, la diferencia que tienen
+es que tienen diferente dirección dentro de la memoria, haciendolos únicos.
+
+La última necesidad es la web, se crea la clase "EmpleadoController". La función principal de esta clase es funcionar como puerta de entrada a nuestro aplicación web.
+
+Dentro del directorio "model" podemos tener más dos tipos de tablas, departamento y empleado...etc
+
+Fuera de estos tres directorios se pueden crear todas las clases que quieras, se ejecutarn a la par que se ejecute el servicio de Spring. Nota: Hay que mirar la forma de que el servidor de Spring se mantenga abierto.
