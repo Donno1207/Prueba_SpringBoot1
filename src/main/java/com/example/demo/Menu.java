@@ -6,8 +6,16 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Scanner;
 
+/*
+¿Cómo funciona el menu?
+Nuestro menu no hace una conexión directa con Spring o con MySql, sino que hace peticiones http a nuestro servidor de Spring, y el servidor de Spring es el que se encarga de 
+"contactar" con la base de datos.
+*/
+
 public class Menu {
 
+    //1.Declaramos la dirección de el http para hacer las peticiones
+    //2.Declaramos lo que se encarga de enviar las peticiones http y de recibirlas
     private static final String URL = "http://localhost:8080/empleados";
     private static final HttpClient cliente = HttpClient.newHttpClient();
 
