@@ -30,10 +30,10 @@ public class UsuarioController {
         return repo.findById(id).orElse(null);
     }
 
-    @GetMapping("/nombre/{username}")
-    public Usuario buscarPorUsername(@PathVariable String username){
-        return repo.findByUsername(username).orElse(null);
-    }
+   @GetMapping("/nombre/{username}")
+public Usuario buscarPorUsername(@PathVariable String username) {
+    return repo.findByUsername(username).orElse(null);
+}
 
 
 }

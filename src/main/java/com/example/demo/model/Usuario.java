@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,9 +12,11 @@ public class Usuario {
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private long id;
+    private Long id;
 
     private String username;
+    
+    @JsonIgnore //Este lo he añadido para cuando se abra la URL no enseñe la contraseña directamente en texto plano
     private String password;
     private String rango;
 
