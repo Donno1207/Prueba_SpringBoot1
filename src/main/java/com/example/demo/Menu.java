@@ -21,6 +21,13 @@ public class Menu {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
+        System.out.println("Usario: ");
+        String usuario = sc.next();
+        System.out.println("Contraseña: ");
+        
+
+
         int opcion = 0;
 
         while (opcion != 3) {
