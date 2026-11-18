@@ -8,8 +8,7 @@ import java.nio.file.Files;
 public class IniciarServidor {
 
     // Cambia esta ruta si mueves el proyecto
-    private static final String JAR =
-            "D:\\Programación\\Java\\Prueba_SpringBoot1\\target\\demo-0.0.1-SNAPSHOT.jar";
+    private static final String JAR ="D:\\Programación\\Java\\Prueba_SpringBoot1\\target\\demo-0.0.1-SNAPSHOT.jar";
     private static final int PUERTO = 8080;
 
     public static void main(String[] args) throws Exception {
