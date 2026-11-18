@@ -8,7 +8,7 @@ public class Departamento {
 	@Id //Marcamos que esta variable va a ser nuestro identificador de cada linea
 	@GeneratedValue(strategy = GenerationType.IDENTITY) //El valor lo genera la base de datos
 	@Column(name = "id_departamento") //Con @Column le indicamos que nuestro id se llama de otra forma
-	private long id_departamento;
+	private long id_departamento;	//importante que el nombre de las variables tiene que ser igual nombre de las columnas de la tabla de Mysql
 	
 	//Sin ninguna anotación JPA lo convierte en una columna
 	private String nombre;

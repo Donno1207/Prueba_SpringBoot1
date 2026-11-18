@@ -12,14 +12,16 @@ public class Empleado{
 	private long id_empleado;
 	
 	private String nombre;
+	
 	private String apellidos;
+	@Column(name = "correo_electronico")
+	
 	private String correo;
 	private String telefono;
 	private Date fecha_nacimiento;
 	
 	@ManyToOne //Muchos empleados pueden pertenecer a un solo departamento
 	@JoinColumn(name = "id_departameno") //Es el nombre de la columna de clave foránea en la tabla Departamento
-	private long id_departamento;
 	private Departamento departamento; //Toma el objeto departamento, toma su id y lo pone en la columna
 	
 	private String rol;
@@ -32,7 +34,7 @@ public class Empleado{
 	}
 
 	public Empleado(long id_empleado, String nombre, String apellidos, String correo, String telefono,
-			Date fecha_nacimiento, long id_departamento, Departamento departamento, String rol, Date fecha_ingreso,
+			Date fecha_nacimiento, Departamento departamento, String rol, Date fecha_ingreso,
 			double salario, double comision) {
 		super();
 		this.id_empleado = id_empleado;
@@ -41,7 +43,6 @@ public class Empleado{
 		this.correo = correo;
 		this.telefono = telefono;
 		this.fecha_nacimiento = fecha_nacimiento;
-		this.id_departamento = id_departamento;
 		this.departamento = departamento;
 		this.rol = rol;
 		this.fecha_ingreso = fecha_ingreso;
@@ -95,14 +96,6 @@ public class Empleado{
 
 	public void setFecha_nacimiento(Date fecha_nacimiento) {
 		this.fecha_nacimiento = fecha_nacimiento;
-	}
-
-	public long getId_departamento() {
-		return id_departamento;
-	}
-
-	public void setId_departamento(long id_departamento) {
-		this.id_departamento = id_departamento;
 	}
 
 	public Departamento getDepartamento() {
