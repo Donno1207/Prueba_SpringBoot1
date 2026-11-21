@@ -1,6 +1,9 @@
 package com.example.demo.model;
 import java.sql.Date;
 
+import com.example.demo.enums.EstadoCliente;
+import com.example.demo.enums.RolEmpleado;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -24,7 +27,10 @@ public class Empleado{
 	@JoinColumn(name = "id_departameno") //Es el nombre de la columna de clave foránea en la tabla Departamento
 	private Departamento departamento; //Toma el objeto departamento, toma su id y lo pone en la columna
 	
-	private String rol;
+	@Enumerated(EnumType.STRING)
+	@Column(name = "rol", nullable = false)
+	private RolEmpleado rol = RolEmpleado.EMPLEADO;
+
 	private Date fecha_ingreso;
 	private double salario;
 	private double comision;
@@ -34,7 +40,7 @@ public class Empleado{
 	}
 
 	public Empleado(long id_empleado, String nombre, String apellidos, String correo, String telefono,
-			Date fecha_nacimiento, Departamento departamento, String rol, Date fecha_ingreso,
+			Date fecha_nacimiento, Departamento departamento, RolEmpleado rol, Date fecha_ingreso,
 			double salario, double comision) {
 		super();
 		this.id_empleado = id_empleado;
@@ -106,11 +112,11 @@ public class Empleado{
 		this.departamento = departamento;
 	}
 
-	public String getRol() {
+	public RolEmpleado getRol() {
 		return rol;
 	}
 
-	public void setRol(String rol) {
+	public void setRol(RolEmpleado rol) {
 		this.rol = rol;
 	}
 
